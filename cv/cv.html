@@ -1,0 +1,327 @@
+<!doctype html>
+<!--
+  CV di Maselli Sergio Francesco.
+  Per modificarlo: cambia i testi qui sotto e lancia `npm run cv`.
+  Il PDF viene rigenerato in public/CV-Maselli-Sergio-Francesco.pdf (lo scarica il sito).
+-->
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <title>CV Maselli Sergio Francesco, Junior Full Stack Developer</title>
+    <meta name="author" content="Maselli Sergio Francesco" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Unbounded:wght@600;700&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      :root {
+        --ink: #17142b;
+        --text: #2c2843;
+        --muted: #5f5a7a;
+        --accent: #5b45d6;
+        --accent-soft: #eeeaff;
+        --line: #e2def3;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        width: 210mm;
+        padding: 9.5mm 13mm 5mm;
+        font-family: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+        font-size: 9pt;
+        line-height: 1.34;
+        color: var(--text);
+        background: #fff;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Intestazione */
+      header {
+        display: grid;
+        grid-template-columns: 27mm 1fr;
+        gap: 7mm;
+        align-items: center;
+        padding-bottom: 4.5mm;
+        border-bottom: 1.5px solid var(--ink);
+      }
+      .photo {
+        width: 27mm;
+        height: 27mm;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 30%;
+        background: #283246;
+      }
+      h1 {
+        font-family: "Unbounded", "Instrument Sans", sans-serif;
+        font-size: 21pt;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      .role {
+        margin-top: 1.6mm;
+        font-size: 11.5pt;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      .contacts {
+        margin-top: 3mm;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1mm 4.5mm;
+        font-size: 8.8pt;
+        color: var(--text);
+      }
+      .contacts span b {
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      /* Sezioni */
+      section {
+        margin-top: 3.6mm;
+      }
+      h2 {
+        font-family: "Unbounded", "Instrument Sans", sans-serif;
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: var(--ink);
+        letter-spacing: 0.01em;
+        padding-bottom: 1.2mm;
+        margin-bottom: 2.2mm;
+        border-bottom: 1px solid var(--line);
+      }
+      .summary {
+        font-size: 9.2pt;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 26mm 1fr;
+        gap: 0.8mm 4mm;
+      }
+      .skills dt {
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .item + .item {
+        margin-top: 2.7mm;
+      }
+      .item-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+      .item-title {
+        font-size: 9.8pt;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .item-title span {
+        font-weight: 500;
+        color: var(--muted);
+      }
+      .date {
+        flex-shrink: 0;
+        font-size: 8.8pt;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      .stack {
+        margin-top: 0.6mm;
+        font-size: 8.7pt;
+        color: var(--muted);
+      }
+      .stack b {
+        font-weight: 600;
+        color: var(--text);
+      }
+      ul {
+        margin-top: 0.8mm;
+        padding-left: 4mm;
+      }
+      li {
+        margin-top: 0.3mm;
+      }
+      li::marker {
+        color: var(--accent);
+      }
+      .link {
+        font-size: 8.6pt;
+        color: var(--accent);
+      }
+
+      .two-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 8mm;
+      }
+
+      footer {
+        margin-top: 3mm;
+        padding-top: 2mm;
+        border-top: 1px solid var(--line);
+        font-size: 7.4pt;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="photo" src="../public/sergio.png" alt="Foto di Maselli Sergio Francesco" />
+      <div>
+        <h1>Maselli Sergio Francesco</h1>
+        <p class="role">Junior Full Stack Developer</p>
+        <p class="contacts">
+          <span><b>Tel.</b> +39 370 142 1598</span>
+          <span><b>Email</b> <a href="mailto:sergiomaselli1@gmail.com">sergiomaselli1@gmail.com</a></span>
+          <span><b>Sede</b> Bari, disponibile al trasferimento</span>
+          <span><b>LinkedIn</b> <a href="https://www.linkedin.com/in/sergio-francesco-maselli/">linkedin.com/in/sergio-francesco-maselli</a></span>
+          <span><b>GitHub</b> <a href="https://github.com/Sergio-dev01">github.com/Sergio-dev01</a></span>
+          <span><b>Nato il</b> 04/10/2001</span>
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <h2>Profilo</h2>
+      <p class="summary">
+        Junior Full Stack Developer formato con il Master Full-Stack Development di Epicode. Sviluppo
+        applicazioni web complete, dall'interfaccia in <strong>React</strong>, <strong>Next.js</strong> e
+        <strong>TypeScript</strong> alle API REST in <strong>Java</strong> e <strong>Spring Boot</strong>, fino
+        alla progettazione del database <strong>PostgreSQL</strong>. Curo la qualità del codice, la chiarezza
+        dell'interazione e la coerenza tra frontend e backend. Cerco un team in cui crescere accanto a
+        sviluppatori esperti, prendendomi responsabilità reali.
+      </p>
+    </section>
+
+    <section>
+      <h2>Competenze tecniche</h2>
+      <dl class="skills">
+        <dt>Frontend</dt>
+        <dd>React, Next.js, TypeScript, JavaScript (ES6+), Redux Toolkit, HTML5, CSS3, Tailwind CSS, Bootstrap</dd>
+        <dt>Backend</dt>
+        <dd>Java 17, Spring Boot 3, Spring Security, autenticazione JWT, API REST, Zod</dd>
+        <dt>Database</dt>
+        <dd>PostgreSQL, SQL, JPA / Hibernate, Supabase</dd>
+        <dt>Strumenti</dt>
+        <dd>Git, GitHub, Vite, Vitest, Playwright, Vercel</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Progetti</h2>
+
+      <div class="item">
+        <div class="item-head">
+          <p class="item-title">Cinematheque <span>| Web app full-stack, progetto personale</span></p>
+          <p class="date">2026</p>
+        </div>
+        <p class="stack"><b>Stack:</b> Next.js 16, React 19, TypeScript, Tailwind CSS, Supabase, Zod, Vitest, Playwright</p>
+        <ul>
+          <li>Sviluppata una cineteca online con catalogo, watchlist, diario dei film visti, voti e recensioni.</li>
+          <li>Integrata l'API di TMDB solo lato server, con cache esplicita, limite di richieste e nuovi tentativi automatici.</li>
+          <li>Gestiti login e dati utente con Supabase e regole di sicurezza sul database; test unitari ed end-to-end.</li>
+        </ul>
+        <p class="link"><a href="https://github.com/Sergio-dev01/cinematheque">github.com/Sergio-dev01/cinematheque</a></p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <p class="item-title">PetBnb <span>| Progetto finale del master Epicode</span></p>
+          <p class="date">2025</p>
+        </div>
+        <p class="stack"><b>Stack:</b> Java 17, Spring Boot 3, Spring Security, JWT, JPA / Hibernate, PostgreSQL, React, TypeScript, Vite</p>
+        <ul>
+          <li>Progettata e sviluppata da solo una piattaforma che collega proprietari di animali e strutture pet-friendly.</li>
+          <li>Implementata l'autenticazione con Spring Security e JWT, con ruoli USER e HOST e permessi distinti.</li>
+          <li>Realizzate API REST per le prenotazioni online con validazione dei dati, su un'architettura modulare e scalabile.</li>
+        </ul>
+        <p class="link"><a href="https://github.com/Sergio-dev01/Capstone-PetBnb">github.com/Sergio-dev01/Capstone-PetBnb</a></p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <p class="item-title">Mimo! <span>| Progressive Web App, progetto personale</span></p>
+          <p class="date">2026</p>
+        </div>
+        <p class="stack"><b>Stack:</b> React, Vite, Service Worker, Web Audio API, Wake Lock API</p>
+        <ul>
+          <li>Pubblicato un gioco del mimo per smartphone, installabile e utilizzabile offline: da 2 a 6 squadre e oltre 2200 parole.</li>
+          <li>Gestiti timer, vibrazione, schermo sempre acceso e salvataggio locale di partite e punteggi.</li>
+        </ul>
+        <p class="link"><a href="https://mimo-app-lime.vercel.app">mimo-app-lime.vercel.app</a></p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <p class="item-title">LinkedIn clone <span>| Build week Epicode, team di 4 persone</span></p>
+          <p class="date">2025</p>
+        </div>
+        <p class="stack"><b>Stack:</b> React, Redux Toolkit, React Router, React Bootstrap, API REST</p>
+        <p>Profilo con esperienze modificabili, feed dei post e ricerca di offerte di lavoro, sviluppati in team su GitHub.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Istruzione e formazione</h2>
+
+      <div class="item">
+        <div class="item-head">
+          <p class="item-title">Master Full-Stack Development <span>| Epicode</span></p>
+          <p class="date">02/2025 – 08/2025</p>
+        </div>
+        <p>
+          Programma intensivo di 6 mesi: Java, Spring Boot, PostgreSQL, API REST, autenticazione JWT, React, Redux,
+          TypeScript, JavaScript, HTML5, CSS, Bootstrap. Progetti settimanali e build week in team.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <p class="item-title">Diploma in Informatica e Telecomunicazioni <span>| IISS Volta De Gemmis, Bitonto</span></p>
+          <p class="date">2022 – 2024</p>
+        </div>
+        <p>Programmazione, gestione delle reti, sicurezza informatica, sistemi operativi e sviluppo software.</p>
+      </div>
+    </section>
+
+    <section class="two-cols">
+      <div>
+        <h2>Lingue</h2>
+        <p><strong>Italiano</strong>: madrelingua</p>
+        <p><strong>Inglese</strong>: intermedio</p>
+      </div>
+      <div>
+        <h2>Competenze trasversali</h2>
+        <p>Lavoro di squadra, curiosità e voglia di imparare, gestione del tempo, responsabilità, perseveranza.</p>
+        <p style="margin-top: 1.2mm"><strong>Patente</strong>: B</p>
+      </div>
+    </section>
+
+    <footer>
+      Autorizzo il trattamento dei dati personali contenuti nel CV ai sensi del D.Lgs. 196/2003 e del Regolamento UE
+      2016/679 (GDPR).
+    </footer>
+  </body>
+</html>

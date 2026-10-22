@@ -1,26 +1,128 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Palette del sito (solo tema scuro, scelta di design):
+  ink      #100D1F  fondo
+  ink-2    #181430  superfici rialzate
+  ink-3    #221C40  superfici attive
+  line     #2B2550  bordi
+  text     #EEEBFF  testo principale
+  muted    #A6A1CC  testo secondario
+  lavender #BBAAFF  accento principale (lo stesso lilla del CV)
+  violet   #7B5CFF  accento profondo, per bagliori e riempimenti
+  mint     #7CE7B5  solo per lo stato "disponibile"
+*/
 
 @theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-lavender: var(--lavender);
+  --color-violet: var(--violet);
+  --color-mint: var(--mint);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-unbounded);
+  --font-mono: var(--font-jetbrains);
+  --font-heading: var(--font-unbounded);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --ink: #100d1f;
+  --ink-2: #181430;
+  --ink-3: #221c40;
+  --line: #2b2550;
+  --lavender: #bbaaff;
+  --violet: #7b5cff;
+  --mint: #7ce7b5;
+
+  --background: var(--ink);
+  --foreground: #eeebff;
+  --card: var(--ink-2);
+  --card-foreground: #eeebff;
+  --popover: var(--ink-2);
+  --popover-foreground: #eeebff;
+  --primary: var(--lavender);
+  --primary-foreground: var(--ink);
+  --secondary: var(--ink-3);
+  --secondary-foreground: #eeebff;
+  --muted: var(--ink-3);
+  --muted-foreground: #a6a1cc;
+  --accent: var(--ink-3);
+  --accent-foreground: #eeebff;
+  --destructive: #ff8a9a;
+  --border: var(--line);
+  --input: #3a3366;
+  --ring: var(--lavender);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: var(--lavender);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--lavender);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Grana leggera su tutto il fondo, per togliere l'effetto "schermo piatto". */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

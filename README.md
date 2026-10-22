@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio di Maselli Sergio Francesco
 
-## Getting Started
+Sito vetrina personale: Next.js 16, TypeScript, Tailwind CSS 4 e Motion, con componenti presi dalle librerie pubblicate su [21st.dev](https://21st.dev).
 
-First, run the development server:
+## Avvio in locale
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Il sito si apre su <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Comando         | Cosa fa                                                  |
+| --------------- | -------------------------------------------------------- |
+| `npm run dev`   | Server di sviluppo con ricaricamento automatico          |
+| `npm run build` | Build di produzione                                      |
+| `npm run start` | Avvia la build di produzione                             |
+| `npm run lint`  | Controllo del codice con ESLint                          |
+| `npm run cv`    | Rigenera il PDF del CV da `cv/cv.html` (serve Chrome)    |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Modificare i contenuti
 
-## Learn More
+Tutti i testi sono in due file:
 
-To learn more about Next.js, take a look at the following resources:
+- `src/content/site.ts`: profilo, contatti, progetti, servizi, fasi di lavoro e percorso.
+- `src/content/tech.tsx`: tecnologie divise per strato (interfaccia, logica, dati, strumenti).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Immagini dei progetti
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Finché un progetto non ha un'immagine, il sito mostra un segnaposto animato con i colori del progetto. Per sostituirlo:
 
-## Deploy on Vercel
+1. Salva la schermata in `public/progetti/`, per esempio `public/progetti/cinematheque.webp` (formato consigliato 16:10, larghezza almeno 1600 px).
+2. In `src/content/site.ts` aggiungi al progetto `image: "/progetti/cinematheque.webp"`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La parallasse e gli effetti funzionano anche con le immagini vere.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Foto profilo
+
+È in `public/sergio.png` (estratta dal vecchio CV). Per cambiarla, sostituisci il file mantenendo lo stesso nome, oppure aggiorna `profile.photo` in `src/content/site.ts`.
+
+## Form contatti
+
+Il form invia i messaggi con [Resend](https://resend.com), che ha un piano gratuito.
+
+1. Crea un account su Resend e una chiave API.
+2. Copia `.env.example` in `.env.local` e incolla la chiave in `RESEND_API_KEY`.
+3. Riavvia `npm run dev`.
+
+Senza chiave il form funziona lo stesso: apre l'app di posta del visitatore con il messaggio già scritto. Il bottone WhatsApp e l'indirizzo email sono sempre visibili come alternativa.
+
+## CV
+
+- Sorgente modificabile: `cv/cv.html` (testo normale in HTML, con i commenti per orientarsi).
+- `npm run cv` rigenera `public/CV-Maselli-Sergio-Francesco.pdf`, il file scaricabile dal sito.
+
+## Componenti di terze parti
+
+Installati con la CLI di shadcn dai registry pubblici delle librerie originali, gli stessi pubblicati su 21st.dev:
+
+| Componente                        | Libreria         | Dove si usa                          |
+| --------------------------------- | ---------------- | ------------------------------------ |
+| Background Paths                  | Kokonut UI       | Sfondo dell'hero                     |
+| Text Scramble, Magnetic, Tilt     | Motion Primitives | Ruolo nell'hero, bottoni, foto       |
+| Infinite Slider, Progressive Blur | Motion Primitives | Nastro delle tecnologie              |
+| Glowing Effect                    | Aceternity UI    | Bordi luminosi di competenze e servizi |
+| Timeline                          | Aceternity UI    | Sezione "Percorso"                   |
+| Border Beam                       | Magic UI         | Riquadro del form contatti           |
+
+Il registry di 21st.dev ora risponde solo agli utenti autenticati: con un account puoi installare altri componenti direttamente da lì, seguendo le istruzioni del sito.
+
+## Pubblicazione
+
+Il sito è pronto per [Vercel](https://vercel.com): pubblica il repository su GitHub, importalo su Vercel e aggiungi le variabili di `.env.example` nelle impostazioni del progetto.
