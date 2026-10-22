@@ -11,10 +11,14 @@ import { cn } from "@/lib/utils";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Ogni lettera sale da sotto una maschera: è l'unico grande momento di ingresso del sito. */
+/**
+ * Ogni lettera sale da sotto una maschera: è l'unico grande momento di ingresso del sito.
+ * Il padding orizzontale (compensato dal margine negativo) evita che la maschera
+ * tagli le lettere che sporgono per la spaziatura negativa, come la "o" finale.
+ */
 function RisingWord({ text, delay, className }: { text: string; delay: number; className?: string }) {
   return (
-    <span className={cn("-mb-[0.14em] flex overflow-hidden pb-[0.2em]", className)} aria-hidden="true">
+    <span className={cn("-mx-[0.12em] -mb-[0.14em] flex overflow-hidden px-[0.12em] pb-[0.2em]", className)} aria-hidden="true">
       {text.split("").map((char, i) => (
         <motion.span
           key={i}
